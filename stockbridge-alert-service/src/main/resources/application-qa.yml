@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/stockbridge_alerts}
+    username: ${DB_USER:stockbridge}
+    password: ${DB_PASSWORD:stockbridge_dev_only}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data-qa.sql

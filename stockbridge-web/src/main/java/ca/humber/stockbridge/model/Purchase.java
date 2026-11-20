@@ -1,0 +1,3 @@
+package ca.humber.stockbridge.model;
+import jakarta.persistence.*;import java.math.BigDecimal;import java.time.LocalDateTime;
+@Entity public class Purchase {@Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id;@ManyToOne public Supplier supplier;@ManyToOne public Material material;@ManyToOne public Warehouse warehouse;public BigDecimal weightKg;public BigDecimal pricePerKg;public BigDecimal totalCad;public String createdBy;public LocalDateTime createdAt=LocalDateTime.now();public String status="POSTED";}

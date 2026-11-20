@@ -1,0 +1,1 @@
+package ca.humber.alerts;import org.springframework.data.jpa.repository.JpaRepository;import java.util.List;public interface AlertRepository extends JpaRepository<Alert,Long>{List<Alert> findBySeverityAndStatus(String severity,String status);List<Alert> findBySeverity(String severity);List<Alert> findByStatus(String status);}

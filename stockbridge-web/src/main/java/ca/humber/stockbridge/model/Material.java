@@ -1,0 +1,3 @@
+package ca.humber.stockbridge.model;
+import jakarta.persistence.*;import jakarta.validation.constraints.*;import java.math.BigDecimal;import java.time.LocalDateTime;
+@Entity public class Material { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id; @NotBlank @Size(min=2,max=80) @Column(unique=true) public String name; @NotNull @Enumerated(EnumType.STRING) public Category category; @NotNull @DecimalMin("0.00") public BigDecimal basePricePerKg; public LocalDateTime createdAt=LocalDateTime.now();public enum Category {FERROUS,NON_FERROUS} public Material(){} public Material(String name,Category category,BigDecimal price){this.name=name;this.category=category;this.basePricePerKg=price;} }

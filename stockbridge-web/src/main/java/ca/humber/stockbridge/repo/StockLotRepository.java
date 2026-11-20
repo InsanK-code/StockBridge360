@@ -1,0 +1,1 @@
+package ca.humber.stockbridge.repo;import ca.humber.stockbridge.model.*;import org.springframework.data.jpa.repository.JpaRepository;public interface StockLotRepository extends JpaRepository<StockLot,Long>{java.util.List<StockLot> findByMaterialIdAndWarehouseIdOrderByAcquiredAtAsc(Long materialId,Long warehouseId);java.util.List<StockLot> findByWarehouseId(Long warehouseId);}

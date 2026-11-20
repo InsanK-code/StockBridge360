@@ -1,0 +1,3 @@
+package ca.humber.stockbridge.model;
+import jakarta.persistence.*;import java.math.BigDecimal;
+@Entity public class Warehouse {@Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id;public String name;public String location;public BigDecimal capacityKg;public boolean active=true;public Warehouse(){}public Warehouse(String n,String l,String c){name=n;location=l;capacityKg=new BigDecimal(c);}}

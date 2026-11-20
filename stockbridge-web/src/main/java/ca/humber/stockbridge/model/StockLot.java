@@ -1,0 +1,3 @@
+package ca.humber.stockbridge.model;
+import jakarta.persistence.*;import java.math.BigDecimal;import java.time.LocalDateTime;
+@Entity public class StockLot {@Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id;@ManyToOne(optional=false) public Material material;@ManyToOne(optional=false) public Warehouse warehouse;@ManyToOne public Supplier sourceSupplier;@Column(nullable=false) public BigDecimal weightKg;public LocalDateTime acquiredAt=LocalDateTime.now();public StockLot(){}public StockLot(Material m,Warehouse w,Supplier s,BigDecimal kg){material=m;warehouse=w;sourceSupplier=s;weightKg=kg;}}
