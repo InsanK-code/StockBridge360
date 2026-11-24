@@ -102,3 +102,11 @@ These are **planned responsibilities from Assignment 0**, not claims of complete
 
 ## Known limitations / improvements
 This is a substantial **starter implementation**, not a verified production system. Before submission, compile and run both modules, test role restrictions, form validation, CRUD and QA profile, and fix any issues. Sample data is initialized using a Java runner rather than `data.sql` in the web app; the professor specifically requests `data.sql`, so convert that seeding mechanism before grading. The current admin interface supports deleting materials and changing roles, but does not yet implement editing materials, supplier/warehouse CRUD, audit logging, concurrency-safe stock allocation, or comprehensive automated tests. The purchase model currently uses one material per transaction rather than a separate PurchaseLine entity. These are remaining rubric/design gaps, not finished features.
+
+## Deliverable 2 — security continuation
+
+Local demo accounts (all use `ChangeMe123!`): `admin@stockbridge.local`, `manager@stockbridge.local`, `staff@stockbridge.local`. These are classroom-only credentials. New registrations receive STAFF privileges; administrators can change roles. ADMIN can edit/delete materials and manage roles; MANAGER can add materials and record transactions; STAFF can view records and record transactions but cannot add catalog materials or access administration.
+
+Run `mvn -pl stockbridge-web spring-boot:run` from the root. Visit http://localhost:8080. In Administration, choose Edit beside a material, update its price and save. Referenced materials cannot be deleted. Sign out and test each demo account. Run `mvn -pl stockbridge-web test` for automated access-control checks.
+
+Submission video: show public home, registration, invalid login, successful login, staff/manager restrictions, admin edit and delete (use an unreferenced test material), role management and logout. Verify each feature locally before submission.
